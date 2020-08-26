@@ -5,7 +5,7 @@ const shortid = require("shortid");
 
 module.exports = (app) => {
   //GET API for redirecting to Original URL
-  app.get("/api/url/:code", async (req, res) => {
+  app.get("/:code", async (req, res) => {
     UrlShorten.findOne({ urlHash: req.params.code }, (err, urlDb) => {
       if (err) {
         res.json({ message: "Url is not valid" });
