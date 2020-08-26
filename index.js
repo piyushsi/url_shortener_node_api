@@ -1,7 +1,7 @@
 // Require express module
 const express = require("express");
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 
 //Start server on Port 3001
