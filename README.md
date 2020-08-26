@@ -10,6 +10,7 @@ Endpoints are as follows:
 1. Endpoint to create shortened url
 
 ```
+POST /links
 https://url-sr.herokuapp.com/api/url/
 
 Body:
