@@ -17,15 +17,19 @@ module.exports = (app) => {
   //POST API for creating short url from Original URL
   app.post("/api/url", async (req, res) => {
     if (validUrl.isUri(req.body.url)) {
-      var urlHash = shortid.generate();
+      UrlShorten.findOne({url:req.body.url},(err,urlDb)=>{
+        var urlHash = shortid.generate();
       var obj = {
         url: req.body.url,
         urlHash,
         shortUrl: `http://url-sr.herokuapp.com/${urlHash}`,
       };
-      UrlShorten.create(obj, (err, createdDb) => {
+      !urlDb?UrlShorten.create(obj, (err, createdDb) => {
         res.json(createdDb);
-      });
+      }):res.json(urlDb);
+      })
+      
+      
     } else {
       res.json({ message: "Url is not valid" });
     }
