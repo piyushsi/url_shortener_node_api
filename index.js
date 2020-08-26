@@ -10,7 +10,7 @@ app.listen(PORT, () => {
 });
 
 
-const mongoURI = "mongodb://localhost/url_shortner";
+const mongoURI = "mongodb+srv://url:f5FKzpz6bYfcWhS@conduit.acuxw.mongodb.net/url?retryWrites=true&w=majority";
 const mongoose = require("mongoose");
 
 const connectOptions = {
