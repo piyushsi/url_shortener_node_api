@@ -2,7 +2,9 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 3001;
-
+var app = express()
+ 
+app.use(cors())
 
 //Start server on Port 3001
 app.listen(PORT, () => {
